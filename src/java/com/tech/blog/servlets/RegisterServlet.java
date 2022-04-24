@@ -42,17 +42,28 @@ public class RegisterServlet extends HttpServlet {
 
 //            fetch all form data
             String check = request.getParameter("check");
+            String pass1 = request.getParameter("user_password1");
+            String pass2 = request.getParameter("user_password2");
             if (check == null) {
                 out.println("box not checked");
-            } else {
+            } else if(!pass1.equals(pass2)){
+            
+                out.println("Both password not matched");
+            } 
+            
+            
+              else  {
                 //baki ka data yaha nikalna..
                 String name = request.getParameter("user_name");
                 String email = request.getParameter("user_email");
-                String password = request.getParameter("user_password");
+                
                 String gender = request.getParameter("gender");
-                String about = request.getParameter("about");
+                String dob = request.getParameter("user_dob");
+                String mobileNo = request.getParameter("user_mobileNo");
+                
+               
                 //create user object and set all data to that object..
-                User user = new User(name, email, password, gender, about);
+                User user = new User(name, email, pass1, gender, dob, mobileNo);
 
                 //create a user daao object..
                 UserDao dao = new UserDao(ConnectionProvider.getConnection());

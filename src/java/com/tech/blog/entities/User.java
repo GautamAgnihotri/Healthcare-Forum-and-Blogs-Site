@@ -10,28 +10,30 @@ public class User {
     private String password;
     private String gender;
     private Timestamp dateTime;
-    private String about;
+    private String dob;
+    private String mobile;
     private String profile;
 
-    public User(int id, String name, String email, String password, String gender, Timestamp dateTime, String about) {
+    public User(int id, String name, String email, String password, String gender, String dob, String mobile) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.gender = gender;
-        this.dateTime = dateTime;
-        this.about = about;
+        this.dob = dob;
+        this.mobile = mobile;
     }
 
     public User() {
     }
 
-    public User(String name, String email, String password, String gender,  String about) {
+    public User(String name, String email, String password, String gender,  String dob, String mobile) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.gender = gender;       
-        this.about = about;
+        this.dob = dob;
+        this.mobile = mobile;
     }
     
 //    getters and setters
@@ -76,20 +78,20 @@ public class User {
         this.gender = gender;
     }
 
-    public Timestamp getDateTime() {
-        return dateTime;
+    public String getMobileNo() {
+        return mobile;
     }
 
-    public void setDateTime(Timestamp dateTime) {
-        this.dateTime = dateTime;
+    public void setMobileNo(String mobile) {
+        this.mobile = mobile;
     }
 
-    public String getAbout() {
-        return about;
+    public String getDob() {
+        return dob;
     }
 
-    public void setAbout(String about) {
-        this.about = about;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getProfile() {

@@ -22,7 +22,7 @@
 
         <%@include file="normal_navbar.jsp" %>
 
-        <main class="primary-background  banner-background"  style="padding-bottom: 80px;">
+        <main class="primary-background  banner-background"  style="padding-bottom: 80px; margin-top: 20px">
 
             <div class="container">
 
@@ -52,9 +52,18 @@
 
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input  name="user_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <input  name="user_password1" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                 </div>
-
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Confirm Password</label>
+                                    <input  name="user_password2" type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-Enter Password">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="exampleInputMobileNo">Mobile No.</label>
+                                    <input  name="user_mobileNo" type="number" class="form-control" id="exampleInputMobileNo" placeholder="Enter Mobile No.">
+                                </div>
 
                                 <div class="form-group">
                                     <label for="gender">Select Gender</label>
@@ -64,11 +73,9 @@
                                 </div>
 
                                 <div class="form-group">
-
-                                    <textarea name="about"  class="form-control" id=""  rows="5" placeholder="Enter something about yourself"></textarea>
-
+                                    <label for="exampleInputDob">Date Of Birth</label>
+                                    <input  name="user_dob" type="date" class="form-control" id="exampleInputDob">
                                 </div>
-
 
                                 <div class="form-check">
                                     <input name="check" type="checkbox" class="form-check-input" id="exampleCheck1">

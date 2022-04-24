@@ -24,6 +24,7 @@
 
         <!--navbar-->
         <%@include file="normal_navbar.jsp" %>
+        
 
         <!--//banner-->
 
@@ -58,11 +59,11 @@
         <!--//cards-->
 
         <div class="container">
-
+            <h1 class="text-center">Trending Blogs</h1>
             <div class="row mb-2">
 
                 <div class="col-md-4">
-                    <div class="card" >
+                    <div class="card " >
 
                         <div class="card-body">
                             <h5 class="card-title">Java Programming</h5>

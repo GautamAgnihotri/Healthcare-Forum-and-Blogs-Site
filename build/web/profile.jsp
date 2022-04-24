@@ -186,8 +186,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="container text-center">
-                            <img src="pics/<%= user.getProfile()%>" class="img-fluid" style="border-radius:50%;max-width: 150px;;" >
-                            <br>
+                           
+                            
                             <h5 class="modal-title mt-3" id="exampleModalLabel"> <%= user.getName()%> </h5>
                             <!--//details-->
 
@@ -211,13 +211,13 @@
 
                                         </tr>
                                         <tr>
-                                            <th scope="row">Status :</th>
-                                            <td><%= user.getAbout()%></td>
+                                            <th scope="row">Mobile No. :</th>
+                                            <td><%= user.getMobileNo()%></td>
 
                                         </tr>
                                         <tr>
-                                            <th scope="row">Registered on :</th>
-                                            <td><%= user.getDateTime().toString()%></td>
+                                            <th scope="row">DOB :</th>
+                                            <td><%= user.getDob().toString()%></td>
 
                                         </tr>
                                     </tbody>
@@ -247,17 +247,20 @@
                                             <td> <input type="password" class="form-control" name="user_password" value="<%= user.getPassword()%>" > </td>
                                         </tr>
                                         <tr>
+                                            <td>Mobile No. :</td>
+                                            <td> <input type="number" class="form-control" name="user_mobile" value="<%= user.getMobileNo()%>" > </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>DOB :</td>
+                                            <td> <input type="date" class="form-control" name="user_dob" value="<%= user.getDob()%>" > </td>
+                                        </tr>
+                                        
+                                        <tr>
                                             <td>Gender :</td>
                                             <td> <%= user.getGender().toUpperCase()%> </td>
                                         </tr>
-                                        <tr>
-                                            <td>About  :</td>
-                                            <td>
-                                                <textarea rows="3" class="form-control" name="user_about" ><%= user.getAbout()%>
-                                                </textarea>
-
-                                            </td>
-                                        </tr>
+                                      
                                         <tr>
                                             <td>New Profile:</td>
                                             <td>

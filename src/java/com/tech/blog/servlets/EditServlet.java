@@ -54,6 +54,7 @@ public class EditServlet extends HttpServlet {
             String userName = request.getParameter("user_name");
             String userPassword = request.getParameter("user_password");
             String userAbout = request.getParameter("user_about");
+            String userDob = request.getParameter("user_dob");
             Part part = request.getPart("image");
 
             String imageName = part.getSubmittedFileName();
@@ -64,7 +65,7 @@ public class EditServlet extends HttpServlet {
             user.setEmail(userEmail);
             user.setName(userName);
             user.setPassword(userPassword);
-            user.setAbout(userAbout);
+            user.setDob(userDob);
             String oldFile = user.getProfile();
 
             user.setProfile(imageName);

@@ -22,13 +22,14 @@ public class UserDao {
         try {
             //user -->database
 
-            String query = "insert into user(name,email,password,gender,about) values (?,?,?,?,?)";
+            String query = "insert into user(name,email,password,mobileNo,gender,dob) values (?,?,?,?,?,?)";
             PreparedStatement pstmt = this.con.prepareStatement(query);
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getEmail());
             pstmt.setString(3, user.getPassword());
-            pstmt.setString(4, user.getGender());
-            pstmt.setString(5, user.getAbout());
+            pstmt.setString(4, user.getMobileNo());
+            pstmt.setString(5, user.getGender());
+            pstmt.setString(6, user.getDob());
 
             pstmt.executeUpdate();
             f = true;
@@ -64,9 +65,9 @@ public class UserDao {
                 user.setEmail(set.getString("email"));
                 user.setPassword(set.getString("password"));
                 user.setGender(set.getString("gender"));
-                user.setAbout(set.getString("about"));
-                user.setDateTime(set.getTimestamp("rdate"));
-                user.setProfile(set.getString("profile"));
+                user.setDob(set.getString("dob"));
+                user.setMobileNo(set.getString("mobileNo"));
+                
 
             }
 
@@ -82,14 +83,14 @@ public class UserDao {
         boolean f = false;
         try {
 
-            String query = "update user set name=? , email=? , password=? , gender=? ,about=? , profile=? where  id =?";
+            String query = "update user set name=? , email=? , password=? ,mobileNo=? ,gender=? ,dob=?  where  id =?";
             PreparedStatement p = con.prepareStatement(query);
             p.setString(1, user.getName());
             p.setString(2, user.getEmail());
             p.setString(3, user.getPassword());
-            p.setString(4, user.getGender());
-            p.setString(5, user.getAbout());
-            p.setString(6, user.getProfile());
+            p.setString(4, user.getMobileNo());
+            p.setString(5, user.getGender());
+            p.setString(6, user.getDob());
             p.setInt(7, user.getId());
 
             p.executeUpdate();
@@ -119,10 +120,10 @@ public class UserDao {
                 user.setId(set.getInt("id"));
                 user.setEmail(set.getString("email"));
                 user.setPassword(set.getString("password"));
+                user.setMobileNo(set.getString("mobileNo"));
                 user.setGender(set.getString("gender"));
-                user.setAbout(set.getString("about"));
-                user.setDateTime(set.getTimestamp("rdate"));
-                user.setProfile(set.getString("profile"));
+                user.setDob(set.getString("dob"));
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
