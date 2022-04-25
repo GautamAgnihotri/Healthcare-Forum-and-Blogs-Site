@@ -187,7 +187,7 @@
                     <div class="modal-body">
                         <div class="container text-center">
                            
-                            
+                            <img src="pics/default.png">
                             <h5 class="modal-title mt-3" id="exampleModalLabel"> <%= user.getName()%> </h5>
                             <!--//details-->
 
@@ -334,13 +334,13 @@
                                 <textarea name="pContent" class="form-control" style="height: 200px;" placeholder="Enter your content"></textarea>
                             </div>
                             <div class="form-group">
-                                <textarea name="pCode" class="form-control" style="height: 200px;" placeholder="Enter your program (if any)"></textarea>
+                                <textarea name="pDesc" class="form-control" style="height: 200px;" placeholder="Enter Description of Blog"></textarea>
                             </div>
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <label>Select your pic..</label>
                                 <br>
                                 <input type="file" name="pic"  >
-                            </div>
+                            </div>-->
 
                             <div class="container text-center">
                                 <button type="submit" class="btn btn-outline-primary">Post </button>

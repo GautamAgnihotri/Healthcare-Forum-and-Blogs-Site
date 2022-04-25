@@ -32,10 +32,10 @@
 
     <div class="col-md-6 mt-2">
         <div class="card">
-            <img class="card-img-top" src="blog_pics/<%= p.getpPic()%>" alt="Card image cap">
+           
             <div class="card-body">
                 <b><%= p.getpTitle()%></b>
-                <p><%= p.getpContent()%></p>
+                <p><%= p.getpDescription()%></p>
 
             </div>
             <div class="card-footer primary-background text-center">

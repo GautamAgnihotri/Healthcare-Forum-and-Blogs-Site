@@ -155,7 +155,7 @@
 
                         <div class="card-body">
 
-                            <img class="card-img-top my-2" src="blog_pics/<%= p.getpPic()%>" alt="Card image cap">
+                           
 
 
                             <div class="row my-3 row-user">
@@ -176,9 +176,7 @@
                             <br>
                             <br>
 
-                            <div class="post-code">
-                                <pre><%= p.getpCode()%></pre>
-                            </div>
+                            
 
                         </div>
                         <div class="card-footer primary-background">
@@ -252,13 +250,13 @@
 
                                         </tr>
                                         <tr>
-                                            <th scope="row">Status :</th>
-                                            <td><%= user.getAbout()%></td>
+                                            <th scope="row">Mobile No. :</th>
+                                            <td><%= user.getMobileNo()%></td>
 
                                         </tr>
                                         <tr>
-                                            <th scope="row">Registered on :</th>
-                                            <td><%= user.getDateTime().toString()%></td>
+                                            <th scope="row">Date of Birth :</th>
+                                            <td><%= user.getDob().toString()%></td>
 
                                         </tr>
                                     </tbody>
@@ -287,24 +285,23 @@
                                             <td>Password :</td>
                                             <td> <input type="password" class="form-control" name="user_password" value="<%= user.getPassword()%>" > </td>
                                         </tr>
+                                        
+                                        <tr>
+                                            <td>Mobile No. :</td>
+                                            <td> <input type="number" class="form-control" name="user_mobile" value="<%= user.getMobileNo()%>" > </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>DOB :</td>
+                                            <td> <input type="date" class="form-control" name="user_dob" value="<%= user.getDob()%>" > </td>
+                                        </tr>
+                                        
                                         <tr>
                                             <td>Gender :</td>
                                             <td> <%= user.getGender().toUpperCase()%> </td>
                                         </tr>
-                                        <tr>
-                                            <td>About  :</td>
-                                            <td>
-                                                <textarea rows="3" class="form-control" name="user_about" ><%= user.getAbout()%>
-                                                </textarea>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>New Profile:</td>
-                                            <td>
-                                                <input type="file" name="image" class="form-control" >
-                                            </td>
-                                        </tr>
+                                        
+                                        
 
                                     </table>
 
@@ -371,14 +368,10 @@
                             <div class="form-group">
                                 <textarea name="pContent" class="form-control" style="height: 200px;" placeholder="Enter your content"></textarea>
                             </div>
-                            <div class="form-group">
-                                <textarea name="pCode" class="form-control" style="height: 200px;" placeholder="Enter your program (if any)"></textarea>
+                           <div class="form-group">
+                                <textarea name="pDesc" class="form-control" style="height: 200px;" placeholder="Enter Description of Blog"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Select your pic..</label>
-                                <br>
-                                <input type="file" name="pic"  >
-                            </div>
+                            
 
                             <div class="container text-center">
                                 <button type="submit" class="btn btn-outline-primary">Post </button>

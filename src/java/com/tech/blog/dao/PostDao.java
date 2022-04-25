@@ -46,14 +46,13 @@ public class PostDao {
         boolean f = false;
         try {
 
-            String q = "insert into posts(pTitle,pContent,pCode,pPic,catId,userId) values(?,?,?,?,?,?)";
+            String q = "insert into posts(pTitle,pContent,catId,pDescription,uId) values(?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(q);
             pstmt.setString(1, p.getpTitle());
             pstmt.setString(2, p.getpContent());
-            pstmt.setString(3, p.getpCode());
-            pstmt.setString(4, p.getpPic());
-            pstmt.setInt(5, p.getCatId());
-            pstmt.setInt(6, p.getUserId());
+            pstmt.setInt(3, p.getCatId());
+            pstmt.setString(4, p.getpDescription());
+            pstmt.setInt(5, p.getUserId());
             pstmt.executeUpdate();
             f = true;
 
@@ -80,12 +79,12 @@ public class PostDao {
                 int pid = set.getInt("pid");
                 String pTitle = set.getString("pTitle");
                 String pContent = set.getString("pContent");
-                String pCode = set.getString("pCode");
-                String pPic = set.getString("pPic");
+                String pDesc = set.getString("pDescription");
+//                String pPic = set.getString("pPic");
                 Timestamp date = set.getTimestamp("pDate");
                 int catId = set.getInt("catId");
-                int userId = set.getInt("userId");
-                Post post = new Post(pid, pTitle, pContent, pCode, pPic, date, catId, userId);
+                int userId = set.getInt("uId");
+                Post post = new Post(pid, pTitle, pContent, pDesc, date, catId, userId);
 
                 list.add(post);
             }
@@ -111,12 +110,12 @@ public class PostDao {
                 int pid = set.getInt("pid");
                 String pTitle = set.getString("pTitle");
                 String pContent = set.getString("pContent");
-                String pCode = set.getString("pCode");
-                String pPic = set.getString("pPic");
+                String pDesc = set.getString("pDescription");
+               // String pPic = set.getString("pPic");
                 Timestamp date = set.getTimestamp("pDate");
 
-                int userId = set.getInt("userId");
-                Post post = new Post(pid, pTitle, pContent, pCode, pPic, date, catId, userId);
+                int userId = set.getInt("uId");
+                Post post = new Post(pid, pTitle, pContent, pDesc, date, catId, userId);
 
                 list.add(post);
             }
@@ -141,12 +140,12 @@ public class PostDao {
                 int pid = set.getInt("pid");
                 String pTitle = set.getString("pTitle");
                 String pContent = set.getString("pContent");
-                String pCode = set.getString("pCode");
-                String pPic = set.getString("pPic");
+                String pDesc = set.getString("pDescription");
+                //String pPic = set.getString("pPic");
                 Timestamp date = set.getTimestamp("pDate");
                 int cid=set.getInt("catId");
-                int userId = set.getInt("userId");
-                post = new Post(pid, pTitle, pContent, pCode, pPic, date, cid, userId);
+                int userId = set.getInt("uId");
+                post = new Post(pid, pTitle, pContent, pDesc, date, cid, userId);
 
             }
 

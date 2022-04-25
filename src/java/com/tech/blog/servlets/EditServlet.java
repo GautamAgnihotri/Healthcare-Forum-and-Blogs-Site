@@ -53,11 +53,11 @@ public class EditServlet extends HttpServlet {
             String userEmail = request.getParameter("user_email");
             String userName = request.getParameter("user_name");
             String userPassword = request.getParameter("user_password");
-            String userAbout = request.getParameter("user_about");
+            String userMobile = request.getParameter("user_mobile");
             String userDob = request.getParameter("user_dob");
             Part part = request.getPart("image");
 
-            String imageName = part.getSubmittedFileName();
+//            String imageName = part.getSubmittedFileName();
 
             //get the user from the session...
             HttpSession s = request.getSession();
@@ -68,42 +68,42 @@ public class EditServlet extends HttpServlet {
             user.setDob(userDob);
             String oldFile = user.getProfile();
 
-            user.setProfile(imageName);
+//            user.setProfile(imageName);
 
             //update database....
             UserDao userDao = new UserDao(ConnectionProvider.getConnection());
 
             boolean ans = userDao.updateUser(user);
-            if (ans) {
-
-                String path = request.getRealPath("/") + "pics" + File.separator + user.getProfile();
-
-                //start of photo work
-                //delete code
-                String pathOldFile = request.getRealPath("/") + "pics" + File.separator + oldFile;
-
-                if (!oldFile.equals("default.png")) {
-                    Helper.deleteFile(pathOldFile);
-                }
-
-                if (Helper.saveFile(part.getInputStream(), path)) {
-                    out.println("Profile updated...");
-                    Message msg = new Message("Profile details updated...", "success", "alert-success");
-                    s.setAttribute("msg", msg);
-
-                } else {
-                    //////////////
-                    Message msg = new Message("Something went wrong..", "error", "alert-danger");
-                    s.setAttribute("msg", msg);
-                }
-
-                //end of phots work
-            } else {
-                out.println("not updated..");
-                Message msg = new Message("Something went wrong..", "error", "alert-danger");
-                s.setAttribute("msg", msg);
-
-            }
+//            if (ans) {
+//
+//                String path = request.getRealPath("/") + "pics" + File.separator + user.getProfile();
+//
+//                //start of photo work
+//                //delete code
+//                String pathOldFile = request.getRealPath("/") + "pics" + File.separator + oldFile;
+//
+//                if (!oldFile.equals("default.png")) {
+//                    Helper.deleteFile(pathOldFile);
+//                }
+//
+//                if (Helper.saveFile(part.getInputStream(), path)) {
+//                    out.println("Profile updated...");
+//                    Message msg = new Message("Profile details updated...", "success", "alert-success");
+//                    s.setAttribute("msg", msg);
+//
+//                } else {
+//                    //////////////
+//                    Message msg = new Message("Something went wrong..", "error", "alert-danger");
+//                    s.setAttribute("msg", msg);
+//                }
+//
+//                //end of phots work
+//            } else {
+//                out.println("not updated..");
+//                Message msg = new Message("Something went wrong..", "error", "alert-danger");
+//                s.setAttribute("msg", msg);
+//
+//            }
 
             response.sendRedirect("profile.jsp");
 
