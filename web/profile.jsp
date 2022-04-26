@@ -48,7 +48,7 @@
         <!--navbar--> 
 
         <nav class="navbar navbar-expand-lg navbar-dark primary-background">
-            <a class="navbar-brand" href="index.jsp"> <span class="fa fa-asterisk"></span>   Tech Blog</a>
+            <a class="navbar-brand" href="index.jsp"> <span class="fa fa-asterisk"></span>   MedC@re</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -261,12 +261,7 @@
                                             <td> <%= user.getGender().toUpperCase()%> </td>
                                         </tr>
                                       
-                                        <tr>
-                                            <td>New Profile:</td>
-                                            <td>
-                                                <input type="file" name="image" class="form-control" >
-                                            </td>
-                                        </tr>
+                                        
 
                                     </table>
 

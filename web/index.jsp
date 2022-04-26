@@ -31,16 +31,16 @@
 
             <div class="jumbotron primary-background text-white banner-background">
                 <div class="container">
-                    <h3 class="display-3">Welcome to TechBlog </h3>
+                    <h3 class="display-3">Welcome to MedCare </h3>
 
-                    <p>Welcome to technical blog, world of technology
-                        A programming language is a formal language, which comprises a set of instructions that produce various kinds of output. Programming languages are used in computer programming to implement algorithms.
+                    <p>Welcome to MedCare, World of Medical health care forum.<br>
+                       A blog is a mission to provide busy healthcare professionals with "a bird's-eye view of the healthcare industry in 60 seconds."
                     </p>
                     <p>
                         Most programming languages consist of instructions for computers. There are programmable machines that use a set of specific instructions, rather than general programming languages. 
                     </p>
 
-                    <button class="btn btn-outline-light btn-lg"> <span class="fa 	fa fa-user-plus"></span>  Start ! its Free</button>
+                    <a href="register_page.jsp" class="btn btn-outline-light btn-lg"> <span class="fa 	fa fa-user-plus"></span>  Start ! its Free</a>
                     <a href="login_page.jsp" class="btn btn-outline-light btn-lg"> <span class="fa fa-user-circle fa-spin"></span>  Login</a>
 
                 </div>

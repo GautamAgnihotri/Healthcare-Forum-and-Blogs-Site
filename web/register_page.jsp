@@ -79,7 +79,7 @@
 
                                 <div class="form-check">
                                     <input name="check" type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">agree terms and conditions</label>
+                                    <label class="form-check-label" for="exampleCheck1"> I agree all terms and conditions</label>
                                 </div>
 
                                 <br>
