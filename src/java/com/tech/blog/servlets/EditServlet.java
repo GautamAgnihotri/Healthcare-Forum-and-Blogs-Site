@@ -66,7 +66,7 @@ public class EditServlet extends HttpServlet {
             user.setName(userName);
             user.setPassword(userPassword);
             user.setDob(userDob);
-            String oldFile = user.getProfile();
+           
 
 //            user.setProfile(imageName);
 

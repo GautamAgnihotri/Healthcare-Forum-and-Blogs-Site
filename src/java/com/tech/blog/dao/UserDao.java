@@ -67,7 +67,7 @@ public class UserDao {
                 user.setGender(set.getString("gender"));
                 user.setDob(set.getString("dob"));
                 user.setMobileNo(set.getString("mobileNo"));
-                
+                user.setUserLevel(set.getString("uLevel"));
 
             }
 
@@ -123,6 +123,7 @@ public class UserDao {
                 user.setMobileNo(set.getString("mobileNo"));
                 user.setGender(set.getString("gender"));
                 user.setDob(set.getString("dob"));
+                user.setUserLevel(set.getString("uLevel"));
                 
             }
         } catch (Exception e) {

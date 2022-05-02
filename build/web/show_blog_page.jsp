@@ -225,7 +225,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container text-center">
-                            <img src="pics/<%= user.getProfile()%>" class="img-fluid" style="border-radius:50%;max-width: 150px;;" >
+                            
                             <br>
                             <h5 class="modal-title mt-3" id="exampleModalLabel"> <%= user.getName()%> </h5>
                             <!--//details-->

@@ -13,8 +13,9 @@ public class User {
     private String dob;
     private String mobile;
     private String profile;
+    private String userLevel;
 
-    public User(int id, String name, String email, String password, String gender, String dob, String mobile) {
+    public User(int id, String name, String email, String password, String gender, String dob, String mobile, String userLevel) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -22,11 +23,22 @@ public class User {
         this.gender = gender;
         this.dob = dob;
         this.mobile = mobile;
+        this.userLevel = userLevel;
     }
 
     public User() {
     }
 
+    public User(String name, String email, String password, String gender,  String dob, String mobile, String userLevel) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;       
+        this.dob = dob;
+        this.mobile = mobile;
+        this.userLevel = userLevel;
+    }
+    
     public User(String name, String email, String password, String gender,  String dob, String mobile) {
         this.name = name;
         this.email = email;
@@ -34,6 +46,7 @@ public class User {
         this.gender = gender;       
         this.dob = dob;
         this.mobile = mobile;
+        this.userLevel = userLevel;
     }
     
 //    getters and setters
@@ -94,12 +107,12 @@ public class User {
         this.dob = dob;
     }
 
-    public String getProfile() {
-        return profile;
+    public String getUserLevel() {
+        return userLevel;
     }
 
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setUserLevel(String userLevel) {
+        this.userLevel = userLevel;
     }
     
     
