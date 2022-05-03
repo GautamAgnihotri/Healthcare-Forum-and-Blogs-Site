@@ -1,4 +1,7 @@
 
+<%@page import="java.util.List"%>
+<%@page import="com.tech.blog.entities.Post"%>
+<%@page import="com.tech.blog.dao.UserDao"%>
 <%@page import="com.tech.blog.entities.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.tech.blog.helper.ConnectionProvider"%>
@@ -40,7 +43,7 @@
                 background-size: cover;
                 background-attachment: fixed;
             }
-
+            
 
         </style>
     </head>
@@ -56,16 +59,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"> <span class="	fa fa-bell-o"></span> LearnCode with Durgesh <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#"> <span class="	fa fa-bell-o"></span> Your health partner <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="	fa fa-check-square-o"></span> Categories
+                            <span class="	fa fa-check-square-o"></span> Informations
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Programming Language</a>
-                            <a class="dropdown-item" href="#">Project Implementation</a>
+                            <a class="dropdown-item" id="user-info" href="#" data-toggle="modal" data-target="#user-information-modal">Users Information</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" id="blog-info" href="#" data-toggle="modal" data-target="#user-information-modal">Blogs Information</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Data Structure</a>
                         </div>
@@ -166,7 +170,151 @@
 
 
         <!--end main body of the page-->
+        
+        
+        <!--User Information modal-->
+        <div class="modal fade" id="user-information-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Admin Panel</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                         <!--showing user information-->
+                        <div id="user-information">
 
+                            <div class="container text-center">
+                           
+                            
+                                <h5 class="modal-title mt-3" id="exampleModalLabel"> Users Information </h5>
+                                <!--//details-->
+                               
+                                    <%
+                                        UserDao userd = new UserDao(ConnectionProvider.getConnection());
+                                        ArrayList<User> userlist = userd.getAllUser();
+                                        
+                                    %>
+                                    
+
+                                    
+                            
+                            <div id="profile-details">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th> Id. </th>
+                                             <th> User Name </th>
+                                              <th> Mobile No. </th>
+                                               <th> Email </th>
+                                                <th> Gender </th>
+                                                 <th> DOB </th>
+                                                
+                                        </tr>
+                                    </thead>
+                                   
+                                    <tbody>
+                                        <%  
+                                        for (User u : userlist) {
+                                    %>
+                                        <tr>
+            
+                                            <td> <%= u.getId()%> </td>
+                                            <td> <%= u.getName()%> </td>
+                                            <td> <%= u.getMobileNo() %> </td>
+                                            <td> <%= u.getEmail()%> </td>
+                                            <td> <%= u.getGender() %> </td>
+                                            <td> <%= u.getDob()%> </td>
+
+                                        </tr>
+                                        <% 
+                                            }
+                                        %>
+                                    </tbody>
+                                </table>
+                            </div>
+                                            
+                        </div>           
+
+
+                    </div>
+                                 
+                           <!--showing blogs information-->
+                          <div id="blog-information" style="display:none;">
+
+                            <div class="container text-center">
+                           
+                            
+                                <h5 class="modal-title mt-3" id="exampleModalLabel"> Blogs Information </h5>
+                                <!--//details-->
+                               
+                                    <%
+                                        PostDao postInfo = new PostDao(ConnectionProvider.getConnection());
+                                        List<Post> postlist = postInfo.getAllPosts();
+                                        
+                                    %>
+                                    
+
+                                    
+                            
+                            <div id="blogs-details">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th> Post Id. </th>
+                                             <th> Post Title </th>
+                                              <th> Date of post </th>
+                                               <th> Cat Id. </th>
+                                                <th> User Name </th>
+                                                <th> Remove Post</th>
+                                                 
+                                                
+                                        </tr>
+                                    </thead>
+                                   
+                                    <tbody>
+                                        <%  
+                                        for (Post p : postlist) {
+                                    %>
+                                        <tr>
+            
+                                            <td> <%= p.getPid() %> </td>
+                                            <td> <%= p.getpTitle() %> </td>
+                                            <td> <%= p.getpDate() %> </td>
+                                            
+                                            <!--showing categories--> 
+                                            <% PostDao pd = new PostDao(ConnectionProvider.getConnection());%>
+                                            <td> <%= pd.getCategoryByCatId(1).getName() %> </td>
+                                       
+                                            <!--showing user name-->
+                                          <% UserDao ud = new UserDao(ConnectionProvider.getConnection());%>
+                                          
+                                            <td> <%= ud.getUserByUserId(p.getUserId()).getName()%></td>
+                                            <td><span class="fa fa-trash-o"></span></td>
+
+                                        </tr>
+                                        <% 
+                                            }
+                                        %>
+                                    </tbody>
+                                </table>
+                            </div>
+                                            
+                        </div>           
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+     </div>                               
 
 
 
@@ -179,7 +327,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header primary-background text-white text-center">
-                        <h5 class="modal-title" id="exampleModalLabel"> TechBlog </h5>
+                        <h5 class="modal-title" id="exampleModalLabel"> Your Profile </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -309,9 +457,9 @@
                                     <option selected disabled>---Select Category---</option>
 
                                     <%
-                                        PostDao postd = new PostDao(ConnectionProvider.getConnection());
-                                        ArrayList<Category> list = postd.getAllCategories();
-                                        for (Category c : list) {
+                                        PostDao postd1 = new PostDao(ConnectionProvider.getConnection());
+                                        ArrayList<Category> plist = postd1.getAllCategories();
+                                        for (Category c : plist) {
                                     %>
                                     <option value="<%= c.getCid()%>"><%= c.getName()%></option>
 
@@ -372,6 +520,15 @@
         <script>
                                 $(document).ready(function () {
                                     let editStatus = false;
+                                    
+                                    $('#blog-info').click(function(){
+                                        $("#user-information").hide();
+                                        $("#blog-information").show();
+                                    })
+                                    $('#user-info').click(function(){
+                                        $("#user-information").show();
+                                        $("#blog-information").hide();
+                                    })
 
                                     $('#edit-profile-button').click(function ()
                                     {

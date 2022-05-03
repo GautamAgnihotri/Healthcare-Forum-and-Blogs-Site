@@ -65,7 +65,9 @@ public class PostDao {
 
 //    get all the posts
     public List<Post> getAllPosts() {
-
+        
+        
+        
         List<Post> list = new ArrayList<>();
         //fetch all the post
         try {
@@ -93,6 +95,29 @@ public class PostDao {
             e.printStackTrace();
         }
         return list;
+    }
+    
+    public Category getCategoryByCatId(int catId){
+    
+        Category cat = null;
+        
+        
+        try{
+        
+         PreparedStatement p = con.prepareStatement("select * from categories where cid=?");
+         p.setInt(1, catId);
+         ResultSet set = p.executeQuery();
+         
+         cat=new Category();
+         String catname = set.getString("name");
+        System.out.println("-------------------------------------------xxxxxx-------------------------------------------------");
+         System.out.println(catname);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+    return cat;
     }
 
     public List<Post> getPostByCatId(int catId) {

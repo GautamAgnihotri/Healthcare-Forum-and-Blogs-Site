@@ -7,6 +7,7 @@ package com.tech.blog.dao;
 
 import com.tech.blog.entities.User;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UserDao {
 
@@ -14,6 +15,41 @@ public class UserDao {
 
     public UserDao(Connection con) {
         this.con = con;
+    }
+    
+    //method to get information of all users
+    
+    public ArrayList<User> getAllUser() {
+        ArrayList<User> list = new ArrayList<>();
+
+        try {
+
+            String q = "select * from user where uLevel = 'user'";
+            Statement st = this.con.createStatement();
+            ResultSet set = st.executeQuery(q);
+            while (set.next()) {
+                int id = set.getInt("id");
+                String name = set.getString("name");
+                String email = set.getString("email");
+                String mobileNo = set.getString("mobileNo");
+                String gender = set.getString("gender");
+                String dob = set.getString("dob");
+                User user = new User();
+                
+                user.setId(id);
+                user.setName(name);
+                user.setEmail(email);
+                user.setMobileNo(mobileNo);
+                user.setGender(gender);
+                user.setDob(dob);
+                list.add(user);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 
     //method to insert user to data base:
