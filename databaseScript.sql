@@ -58,7 +58,7 @@ CREATE TABLE `liked` (
   KEY `userlike_idx` (`uid`),
   CONSTRAINT `postlike` FOREIGN KEY (`pid`) REFERENCES `posts` (`pid`),
   CONSTRAINT `userlike` FOREIGN KEY (`uid`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `liked` (
 
 LOCK TABLES `liked` WRITE;
 /*!40000 ALTER TABLE `liked` DISABLE KEYS */;
-INSERT INTO `liked` VALUES (1,1,2),(2,1,2),(3,1,2),(4,1,2),(5,1,2),(6,1,2),(7,1,2),(8,1,2),(9,1,2),(10,1,2),(11,1,2);
+INSERT INTO `liked` VALUES (1,1,2),(2,1,2),(3,1,2),(4,1,2),(5,1,2),(6,1,2),(7,1,2),(8,1,2),(9,1,2),(10,1,2),(11,1,2),(12,1,1);
 /*!40000 ALTER TABLE `liked` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +119,7 @@ CREATE TABLE `user` (
   `dob` date DEFAULT NULL,
   `uLevel` varchar(10) NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Gautam Agnihotri','abc@gmail.com','123',56737255627,'male','2001-04-15','admin'),(2,'Harsh Raikwar','abcd@gmail.com','1234',5784573845,'male','2000-02-05','user'),(3,'Gouransh','ab@gmail.com','12345',9002345421,'male','2000-10-03','user'),(4,'Rahul Sharma','Rahul@gmail.com','1234',5246347254,'male','1995-12-11','user');
+INSERT INTO `user` VALUES (1,'Gautam Agnihotri','abc@gmail.com','123',56737255627,'male','2001-04-15','admin'),(2,'Harsh Raikwar','abcd@gmail.com','1234',5784573845,'male','2000-02-05','user'),(3,'Gouransh','ab@gmail.com','12345',9002345421,'male','2000-10-03','user'),(4,'Rahul Sharma','Rahul@gmail.com','1234',5246347254,'male','1995-12-11','user'),(5,'Mohit Rathore','Mohit@gmail.com','1234',7626535635,'male','1967-12-03','user');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-02 21:49:24
+-- Dump completed on 2022-05-03  5:55:24
