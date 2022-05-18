@@ -32,7 +32,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><%= p.getpTitle()%> || TechBlog by Learn Code with Durgesh </title>
+        <title><%= p.getpTitle()%> </title>
 
         <!--css-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -76,6 +76,10 @@
             }
 
         </style>
+        
+        
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="krJJbUk9"></script>
     </head>
     <body>
 
@@ -91,20 +95,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="profile.jsp"> <span class="	fa fa-bell-o"></span> LearnCode with Durgesh <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="profile.jsp"> <span class="	fa fa-bell-o"></span> Your's Health Partner <span class="sr-only">(current)</span></a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="	fa fa-check-square-o"></span> Categories
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Programming Language</a>
-                            <a class="dropdown-item" href="#">Project Implementation</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Data Structure</a>
-                        </div>
-                    </li>
+                    
 
                     <li class="nav-item">
                         <a class="nav-link" href="#"> <span class="	fa fa-address-card-o"></span> Contact</a>
@@ -193,7 +187,9 @@
 
                         </div>
 
-
+                            <div class="card-footer">
+                                <div class="fb-comments" data-href="http://localhost:8080/Healthcare%20Blogs%20andForum/show_blog_page.jsp?post_id=<%= p.getPid()%>#!" data-width="" data-numposts="5"></div>
+                            </div>
 
                     </div>
 

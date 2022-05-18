@@ -1,5 +1,10 @@
 
 
+<%@page import="java.util.List"%>
+<%@page import="com.tech.blog.entities.Post"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.tech.blog.entities.Category"%>
+<%@page import="com.tech.blog.dao.PostDao"%>
 <%@page import="com.tech.blog.helper.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
@@ -36,9 +41,7 @@
                     <p>Welcome to MedCare, World of Medical health care forum.<br>
                        A blog is a mission to provide busy healthcare professionals with "a bird's-eye view of the healthcare industry in 60 seconds."
                     </p>
-                    <p>
-                        Most programming languages consist of instructions for computers. There are programmable machines that use a set of specific instructions, rather than general programming languages. 
-                    </p>
+                    
 
                     <a href="register_page.jsp" class="btn btn-outline-light btn-lg"> <span class="fa 	fa fa-user-plus"></span>  Start ! its Free</a>
                     <a href="login_page.jsp" class="btn btn-outline-light btn-lg"> <span class="fa fa-user-circle fa-spin"></span>  Login</a>
@@ -56,7 +59,11 @@
 
 
         <!--//cards-->
-
+            
+        <% PostDao d = new PostDao(ConnectionProvider.getConnection());
+                      
+             Post p = d.getPostByPostId(1);
+                            %>
         <div class="container">
             <h1 class="text-center">Trending Blogs</h1>
             <div class="row mb-2">
@@ -65,8 +72,8 @@
                     <div class="card " >
 
                         <div class="card-body">
-                            <h5 class="card-title">Java Programming</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title"><%= p.getpTitle()%></h5>
+                            <p class="card-text"><%= p.getpDescription()%></p>
                             <a href="#" class="btn primary-background text-white">Read more</a>
                         </div>
                     </div>
@@ -74,19 +81,28 @@
                 <div class="col-md-4">
                     <div class="card" >
 
+                        <% PostDao d2 = new PostDao(ConnectionProvider.getConnection());
+                      
+             Post p2 = d2.getPostByPostId(2);
+                            %>
                         <div class="card-body">
-                            <h5 class="card-title">Java Programming</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn primary-background text-white">Read more</a>
+                            <h5 class="card-title"><%= p2.getpTitle()%></h5>
+                            <p class="card-text"><%= p2.getpDescription()%></p>
+                            <a href="#" onclick="getPosts(<%= p2.getCatId()%>, this)" class="btn primary-background text-white">Read more</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card" >
 
+                        <% PostDao d3 = new PostDao(ConnectionProvider.getConnection());
+                      
+             Post p3 = d3.getPostByPostId(5);
+                            %>
+                        
                         <div class="card-body">
-                            <h5 class="card-title">Java Programming</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title"><%= p3.getpTitle()%></h5>
+                            <p class="card-text"><%= p3.getpDescription()%></p>
                             <a href="#" class="btn primary-background text-white">Read more</a>
                         </div>
                     </div>
@@ -100,36 +116,7 @@
 
             <div class="row">
 
-                <div class="col-md-4">
-                    <div class="card" >
-
-                        <div class="card-body">
-                            <h5 class="card-title">Java Programming</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn primary-background text-white">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" >
-
-                        <div class="card-body">
-                            <h5 class="card-title">Java Programming</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn primary-background text-white">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" >
-
-                        <div class="card-body">
-                            <h5 class="card-title">Java Programming</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn primary-background text-white">Read more</a>
-                        </div>
-                    </div>
-                </div>
+            
 
 
             </div>
@@ -146,6 +133,39 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/myjs.js" type="text/javascript"></script>
+        
+        <script>
+
+            function getPosts(catId, temp) {
+                $("#loader").show();
+                $("#post-container").hide()
+
+                $(".c-link").removeClass('active')
+
+
+                $.ajax({
+                    url: "load_posts.jsp",
+                    data: {cid: catId},
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        $("#loader").hide();
+                        $("#post-container").show();
+                        $('#post-container').html(data);
+                        $(temp).addClass('active');
+
+                    }
+                })
+
+            }
+
+            $(document).ready(function (e) {
+
+                let allPostRef = $('.c-link')[0]
+                getPosts(0, allPostRef)
+
+
+            })
+        </script>
         
         
 

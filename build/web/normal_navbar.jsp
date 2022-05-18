@@ -11,7 +11,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#"> <span class="	fa fa-address-card-o"></span> Contact</a>
+                <a class="nav-link" href="Contact.jsp"> <span class="	fa fa-address-card-o"></span> Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login_page.jsp"> <span class="fa fa-user-circle "></span> Login</a>

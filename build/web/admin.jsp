@@ -50,7 +50,7 @@
     <body>
         <!--navbar--> 
 
-        <nav class="navbar navbar-expand-lg navbar-dark primary-background">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-dark secondary-background">
             <a class="navbar-brand" href="index.jsp"> <span class="fa fa-asterisk"></span>   MedC@re</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"> <span class="	fa fa-bell-o"></span> Your health partner <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#"> <span class="fa fa-bell-o"></span> Your health partner <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -71,7 +71,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id="blog-info" href="#" data-toggle="modal" data-target="#user-information-modal">Blogs Information</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Data Structure</a>
+                           
                         </div>
                     </li>
 
@@ -288,8 +288,8 @@
                                             <td> <%= p.getpDate() %> </td>
                                             
                                             <!--showing categories--> 
-                                            <% PostDao pd = new PostDao(ConnectionProvider.getConnection());%>
-                                            <td> <%= pd.getCategoryByCatId(1).getName() %> </td>
+                                           
+                                            <td> <%= p.getCatId() %> </td>
                                        
                                             <!--showing user name-->
                                           <% UserDao ud = new UserDao(ConnectionProvider.getConnection());%>
